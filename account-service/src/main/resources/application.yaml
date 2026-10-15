@@ -1,3 +1,18 @@
+server:
+  port: ${ACCOUNT_SERVICE_PORT:8081}
+
 spring:
   application:
     name: account-service
+  datasource:
+    url: jdbc:sqlserver://${DB_HOST:localhost}:${DB_PORT:1433};databaseName=${DB_NAME:MSS301_AccountServiceDB};encrypt=true;trustServerCertificate=true;
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:Long2004@}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: ${JPA_SHOW_SQL:true}
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    properties:
+      hibernate:
+        format_sql: true
